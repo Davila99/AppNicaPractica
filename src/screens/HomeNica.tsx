@@ -12,7 +12,7 @@ const HomeNica = ({ navigation }) => {
 
     const validaUser = () => {
         if (user==='eliseo' && password==='1234') {
-            alert('Acceso') 
+            navigation.navigate('Tareas')
         }
         else{
             alert('Contraseña Incorrecta')
@@ -39,7 +39,7 @@ const HomeNica = ({ navigation }) => {
             <View style={styles.button}>
                 <Button
                     title="Iniciar"
-                    onPress={() => navigation.navigate('ListShores')}
+                    onPress={validaUser}
                 />
             </View>
             
