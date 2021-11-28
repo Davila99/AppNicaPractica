@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { StyleSheet, Text, View,TextInput } from 'react-native'
+import { StyleSheet, Text, View,TextInput,TouchableOpacity } from 'react-native'
 
 
 
@@ -10,6 +10,10 @@ const NicaAtributo = () => {
     const [precio, setPrecio] = useState<string>('')
     const [descuento, setDescuento] = useState<string>('')
     const [resultado, setResultado] = useState<string>('')
+
+    const calcularVenta = () => {
+        
+    }
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Ingresar Producto</Text>
@@ -36,6 +40,12 @@ const NicaAtributo = () => {
                 placeholder={'Descuento'}
                 onChangeText={setDescuento}
             />
+               <TouchableOpacity
+                onPress={calcularVenta}
+                style={styles.botonReset}
+            >
+                <Text style={styles.textbotonReset}>Calcular</Text>
+            </TouchableOpacity>
             <Text style={styles.text}>Resultado{resultado}</Text>
         </View>
     )
@@ -64,5 +74,18 @@ const styles = StyleSheet.create({
     flex:1,
     width: '95%',
     marginLeft: 10
+    },
+    botonReset: {
+        backgroundColor: '#00C1AC',
+        borderRadius: 8,
+        width: '100%',
+        paddingVertical: 7,
+        marginTop: 1
+    },
+    textbotonReset: {
+        color: '#00514E',
+        fontWeight: 'bold',
+        fontSize: 35,
+        textAlign: 'center'
     }
 })
