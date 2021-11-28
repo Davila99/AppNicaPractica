@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
-
-
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 
 
 const HomeNica = ({ navigation }) => {
@@ -11,14 +9,14 @@ const HomeNica = ({ navigation }) => {
     const [password, setPassword] = useState('')
 
     const validaUser = () => {
-        if (user==='eliseo' && password==='1234') {
+        if (user === 'eliseo' && password === '1234') {
             navigation.navigate('Tareas')
         }
-        else{
+        else {
             alert('Contraseña Incorrecta')
         }
     }
-    
+
 
     return (
         <View style={styles.container}>
@@ -33,16 +31,18 @@ const HomeNica = ({ navigation }) => {
                 style={styles.inputs}
                 placeholder={'Ingrese su contraseña'}
                 onChangeText={setPassword}
-                
+
 
             />
-            <View style={styles.button}>
-                <Button
-                    title="Iniciar"
-                    onPress={validaUser}
-                />
-            </View>
-            
+
+            <TouchableOpacity
+                onPress={validaUser}
+                style={styles.botonReset}
+            >
+                <Text style={styles.textbotonReset}>Iniciar</Text>
+            </TouchableOpacity>
+
+
 
 
         </View>
@@ -68,15 +68,24 @@ const styles = StyleSheet.create({
         color: '#034C50',
 
     },
-    button: {
-        color: '#C4C4C4',
-        marginTop: 50
-    },
     container: {
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop:'50%'
+        marginTop: '50%'
+    },
+    botonReset: {
+        backgroundColor: '#00C1AC',
+        borderRadius: 8,
+        width: '100%',
+        paddingVertical: 7,
+        marginTop: 1
+    },
+    textbotonReset: {
+        color: '#00514E',
+        fontWeight: 'bold',
+        fontSize: 35,
+        textAlign: 'center'
     }
 
 })
