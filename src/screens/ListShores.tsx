@@ -1,57 +1,43 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import React, { useState,useEffect } from 'react'
+import { StyleSheet, Text, View, Button,TextInput } from 'react-native'
+
+
 
 const ListShores = ({ navigation }) => {
 
+    const [tarea, setTarea] = useState<string>('')
+    const [listTareas, setListTareas] = useState([])
 
-    const [usuarios, setUsuarios] = useState([
-        {
-            "id": 1,
-            "name": "Leanne Graham"
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-        },
-    ])
+    let	tareas:	string[]=[];
 
-    const eliminarTarea = () => {
-        alert("Eliminar")
+    const crearTarea = () => {
+        listTareas.push(tarea)
     }
-    const editarTarea = () => {
-        alert("Editar")
+  
+    const getUser =() => {
+        alert(listTareas)
     }
-
+    
+    const eliminarTarea = (id:number) => {
+        listTareas.splice(id,1)
+    }
     return (
         <View style={styles.containerBase}>
+            
+      <View style={styles.container}>
+          <TextInput
+          style={styles.inputs}
+          onChangeText={setTarea}
+          />
+          <Button
+          title="Agregar"
+          onPress={crearTarea}
+          />
+      </View>
             {
-                usuarios.map(lista => (
+                listTareas.map(lista => (
                     <View style={styles.container}>
-                        <Text style={styles.text} key={lista.id}>{lista.name}</Text>
+                        <Text style={styles.text}>{lista}</Text>
                         {/* <Button
                             title="Editar"
                             onPress={editarTarea}
@@ -60,11 +46,15 @@ const ListShores = ({ navigation }) => {
                         <Button
                             color="#bd0404"
                             title="ELiminar"
-                            onPress={eliminarTarea}
+                            onPress={()=>eliminarTarea(tareas.id)}
                         />
                     </View>
                 ))
             }
+            <Button
+            title="Ver Datos"
+            onPress={getUser}
+            />
         </View>
     )
 }
@@ -83,17 +73,24 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginLeft: 10,
         borderWidth: 3,
-        borderColor:'#178581',
+        borderColor:'#fffff',
 
     },
     text: {
         fontSize:24,
-        color: '#05786A'
+        color: '#ffffff'
     },
     containerBase: {
         flex:1,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#0b3054',
 
+    },
+    inputs: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 8,
+        padding: 10,
+        fontSize: 22,
+        color: '#034C50',
     }
    
 })

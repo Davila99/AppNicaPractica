@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 const MainStackNavigator = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="NicaAtributo">
+            <Stack.Navigator initialRouteName="Tareas">
                 <Stack.Screen name="Login" component={HomeNica} />
                 <Stack.Screen name="Tareas"component={ListShores} 
                  options={{
