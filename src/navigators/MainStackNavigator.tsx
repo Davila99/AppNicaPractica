@@ -3,16 +3,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeNica from '../screens/HomeNica';
 import ListShores from '../screens/ListShores';
-import Liquidacion from '../screens/Liquidacion';
 import NicaAtributo from '../screens/NicaAtributo';
+import ListKeys from '../screens/ListKeys';
 
 const Stack = createNativeStackNavigator();
 
 const MainStackNavigator = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Tareas">
+            <Stack.Navigator initialRouteName="ListKeys">
                 <Stack.Screen name="Login" component={HomeNica} />
+                <Stack.Screen name="ListKeys" component={ListKeys} />
                 <Stack.Screen name="Tareas"component={ListShores} 
                  options={{
                     title: 'Lista de Tareas',
@@ -25,7 +26,6 @@ const MainStackNavigator = () => {
                     },
                   }}
                  />
-                <Stack.Screen name="Liquidacion" component={Liquidacion} />
                 <Stack.Screen name="NicaAtributo" component={NicaAtributo}
                 options={{
                     title: 'Ventas NicaAtributo',

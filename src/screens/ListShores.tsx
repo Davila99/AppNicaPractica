@@ -13,7 +13,7 @@ const ListShores = ({ navigation }) => {
     }
 
     const eliminarTarea = (id: number) => {
-        tareas.splice(id, 1)
+        tareas.splice(id,1)
         getTareas()
     }
     const getTareas = () =>{
@@ -21,6 +21,7 @@ const ListShores = ({ navigation }) => {
     }
     
     useEffect(getTareas, [])
+    
     return (
         <View style={styles.containerBase}>
 
@@ -35,13 +36,13 @@ const ListShores = ({ navigation }) => {
                 />
             </View>
             {
-                tareas.map(lista => (
-                    <View style={styles.container}>
-                        <Text style={styles.text}>{lista}</Text>
+                tareas.map((lista,index) => (
+                    <View style={styles.container} key={index}>
+                        <Text style={styles.text} >{lista}</Text>
                         <Button
                             color="#bd0404"
                             title="ELiminar"
-                            onPress={() => eliminarTarea(tareas.id)}
+                            onPress={() => eliminarTarea(index)}
                         />
                     </View>
                 ))
